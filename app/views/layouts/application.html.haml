@@ -5,5 +5,14 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    - if browser.ie8?
+      = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", media: "all"
+      = javascript_include_tag "//html5shiv.googlecode.com/svn/trunk/html5.js"
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"
+      = respond_include_tags
+      = javascript_include_tag "oulu-ie8"
+    - if browser.ie9?
+      = javascript_include_tag "oulu-ie9"
+  %body{class: "is-#{page_slug} #{browser}"}
     = yield

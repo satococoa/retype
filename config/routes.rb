@@ -54,8 +54,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  %w(
-    event
-  ).each { |s| get s => "demo##{s}" }
+  get 'event' => 'demo#event'
 
 end
