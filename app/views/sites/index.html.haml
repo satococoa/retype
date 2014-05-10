@@ -9,6 +9,7 @@
     %thead
       %tr
         %th Name
+        %th Theme
         %th S3 access key
         %th S3 secret key
         %th
@@ -19,6 +20,7 @@
       - @sites.each do |site|
         %tr
           %td= site.name
+          %td= site.theme
           %td= site.s3_access_key
           %td= site.s3_secret_key
           %td= link_to 'Show', site
