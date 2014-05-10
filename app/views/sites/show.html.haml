@@ -1,0 +1,16 @@
+.page-header
+  = link_to sites_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_site_path(@site), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show site
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @site.name
+  %dt S3 access key:
+  %dd= @site.s3_access_key
+  %dt S3 secret key:
+  %dd= @site.s3_secret_key

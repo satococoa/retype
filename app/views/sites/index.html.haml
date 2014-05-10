@@ -1,0 +1,26 @@
+.page-header
+  = link_to new_site_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Site
+  %h1 Listing sites
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th S3 access key
+        %th S3 secret key
+        %th
+        %th
+        %th
+
+    %tbody
+      - @sites.each do |site|
+        %tr
+          %td= site.name
+          %td= site.s3_access_key
+          %td= site.s3_secret_key
+          %td= link_to 'Show', site
+          %td= link_to 'Edit', edit_site_path(site)
+          %td= link_to 'Destroy', site, :data => { confirm: 'Are you sure?' }, :method => :delete
