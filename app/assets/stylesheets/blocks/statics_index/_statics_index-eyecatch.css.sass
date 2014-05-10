@@ -2,9 +2,54 @@ $block-slug: statics_index-eyecatch
 
 .#{$block-slug}
   background-color: $brand-primary
+  background-image: image_url("statics_index-eyecatch.jpg")
   color: $white
   text-align: center
+  +background-size(cover)
+  +rem('height', 640px)
+  background-position: right center
+
+.#{$block-slug}__hgroup
+  +rem('margin-top', 160px)
 .#{$block-slug}__logo
-  +montserrat
+  +reset-text
+  +montserrat(400)
+  +text-block(72px, 1.4)
 .#{$block-slug}__lead
-  +text-block($font-size-base, 1.6)
+  +reset-text
+  +lato(400)
+  +text-block(26px, 1.4)
+
+.#{$block-slug}__signin
+  +absolute(right, 40px, top, 16px)
+  color: $white
+  +text-block(16px, 2.4)
+  +rem('padding', 0 14px)
+  +border(all, 1px, solid, $white)
+  +montserrat(800)
+  text-decoration: none
+  +rgba-background(rgba(shade($brand-primary, 40%), .4))
+  &:hover
+    text-decoration: none
+    color: $white
+    border-color: $white
+    +rgba-background(rgba(tint($brand-primary, 60%), .6))
+
+.#{$block-slug}__signup
+  color: $white
+  display: block
+  +rem('width', 260px)
+  +rgba-background(rgba(shade($brand-primary, 40%), .6))
+  +side-mg-auto
+  +rem('margin-top', 60px)
+  +text-block(22px, 2.4)
+  +border(all, 1px, solid, $white)
+  +montserrat(800)
+  text-decoration: none
+  &:hover
+    text-decoration: none
+    color: $white
+    border-color: $white
+    +rgba-background(rgba(tint($brand-primary, 60%), .6))
+
+

@@ -2,9 +2,13 @@ $block-slug: common-eyecatch
 
 .#{$block-slug}
   background-color: $brand-primary
+  background-image: image_url("statics_index-eyecatch.jpg")
+  +background-size(cover)
+  background-position: right 580px
   color: $white
-  +rem('padding', 30px)
+  +rem('padding', 32px)
   +rem('margin-bottom', 20px)
 .#{$block-slug}__title
   +reset-text
-  +montserrat
+  +montserrat(800)
+  +rem('font-size', 48px)

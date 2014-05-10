@@ -1,9 +1,11 @@
 $block-slug: statics_index-usage
 
-.#{$block-slug}
-  color: $brand-primary
+.#{$block-slug}__item
+  +rem('margin-bottom', 32px)
 .#{$block-slug}__title
   +reset-text
-  +montserrat
+  +montserrat(400)
+  color: $brand-primary
 .#{$block-slug}__body
-  +text-block($font-size-base, 1.6)
+  p
+    +text-block(16px, 1.8)

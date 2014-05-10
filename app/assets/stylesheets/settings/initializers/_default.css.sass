@@ -1,22 +1,16 @@
 *::selection
-  background: $blue-d
+  background: black
   color: $white
 *::-moz-selection
-  background: $blue-d
+  background: black
   color: $white
 
-.wrapper
-  +rem('max-width', $wrapper-max-width)
-  +box-sizing(border-box)
-  +side-mg-auto
-  +rem('padding-left', $wrapper-padding)
-  +rem('padding-right', $wrapper-padding)
-  clear: both
-  @media screen and (max-width: #{$break-point})
-    +rem('padding-left', 10px)
-    +rem('padding-right', 10px)
-
 body
-  +rem('font-size', 16px)
-  +rem('padding-top', $header-ht)
-  color: $tx-black
+  =transition($transition-duration: 1s, $transition-property: all, $transition-timing: ease-in)
+    +transition-property($transition-property)
+    +transition-duration($transition-duration)
+    +transition-timing-function($transition-timing)
+  +transition(.4s)
+
+.field_with_errors
+  display: inline !important
