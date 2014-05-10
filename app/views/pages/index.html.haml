@@ -1,0 +1,28 @@
+.page-header
+  = link_to new_site_page_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Page
+  %h1 Listing pages
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Template
+        %th Path
+        %th Data
+        %th
+        %th
+        %th
+
+    %tbody
+      - @pages.each do |page|
+        %tr
+          %td= page.title
+          %td= page.template
+          %td= page.path
+          %td= page.data
+          %td= link_to 'Show', site_page_path(@site, page)
+          %td= link_to 'Edit', edit_site_page_path(@site, page)
+          %td= link_to 'Destroy', site_page_path(@site, page), :data => { confirm: 'Are you sure?' }, :method => :delete

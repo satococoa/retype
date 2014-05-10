@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :sites
+  resources :sites do
+    resources :pages
+  end
 
   devise_for :users
   root to: 'statics#index'
