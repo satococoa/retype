@@ -20,7 +20,10 @@
         %tr
           %td.is-vertical-center.cell-hover
             .cell-hover__inner.is-relative
-              = link_to site.name, site_pages_path(site)
+              = link_to site_pages_path(site) do
+                = site.name
+                %span.table-actions__count-number
+                  = site.pages.count
               %ul.cell-hover__items
                 %li.cell-hover__item
                   = link_to edit_site_path(site), class: "btn btn-warning btn-sm cell-hover__button" do
@@ -29,20 +32,15 @@
           %td.is-vertical-center= site.theme
           %td.is-vertical-center.table-actions
             %ul.table-actions__items.is-inline-blocks
-              %li.table-actions__item
-                = link_to site_pages_path(site), class: "btn btn-default btn-sm table-actions__button" do
-                  %i.fa.fa-files-o.fa-lg
-                  %span.table-actions__count-number
-                    = site.pages.count
-              %li.table-actions__item
+              %li.table-actions__item<>
                 = link_to new_site_page_path(site), class: "btn btn-default btn-sm table-actions__button" do
                   %i.fa.fa-plus
                   %i.fa.fa-file-o.fa-lg
-              %li.table-actions__item
+              %li.table-actions__item<>
                 = link_to deploy_site_path(site), :data => { confirm: 'Are you sure?' }, :method => :post, class: "btn btn-primary btn-sm table-actions__button" do
                   %i.fa.fa-cloud-upload.fa-lg
-              %li.table-actions__item
-                = link_to site, :data => { confirm: 'Are you sure?' }, :method => :delete, class: "btn btn-danger btn-xstable-actions__button" do
+              %li.table-actions__item<>
+                = link_to site, :data => { confirm: 'Are you sure?' }, :method => :delete, class: "btn btn-danger btn-sm table-actions__button" do
                   %i.fa.fa-trash-o.fa-lg
 
 
