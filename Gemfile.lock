@@ -180,6 +180,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mimemagic (0.2.1)
     minitest (5.3.3)
     modular-scale (2.0.5)
       compass (>= 0.12.0)
@@ -316,6 +317,7 @@ DEPENDENCIES
   heroku
   jbuilder (~> 2.0)
   jquery-rails
+  mimemagic
   oulu-rails (~> 0.1.21)!
   pg
   pry-byebug
