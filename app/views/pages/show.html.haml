@@ -1,0 +1,18 @@
+.page-header
+  = link_to site_pages_path(@site), :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_site_page_path(@site, @page), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show page
+
+%dl.dl-horizontal
+  %dt Title:
+  %dd= @page.title
+  %dt Template:
+  %dd= @page.template
+  %dt Path:
+  %dd= @page.path
+  %dt Data:
+  %dd= @page.data
