@@ -27,6 +27,10 @@ gem 'bootstrap-sass'
 # gem 'oulu-rails', path: '../oulu-rails'
 gem 'oulu-rails', '~> 0.1.21', github: 'oulu/oulu-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'spring'
   gem 'quiet_assets'
