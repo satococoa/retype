@@ -8,14 +8,12 @@
         = link_to 'ReType', root_path, :class => "navbar-brand"
       .collapse.navbar-collapse
         %ul.nav.navbar-nav
-          %li{class: "#{'active' if params[:controller] == 'statics'}"}
-            = link_to 'Home', root_path
           %li{class: "#{'active' if params[:controller] == 'sites'}"}
             = link_to 'Sites', sites_path
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             %li
-              = link_to edit_user_password_path do
+              = link_to edit_user_registration_path do
                 %i.fa.fa-user
                 = current_user.email
             %li
