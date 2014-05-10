@@ -2,9 +2,9 @@ class Page < ActiveRecord::Base
   belongs_to :site
   validates :title, presence: true, length: { maximum: 100 }
   validates :template, presence: true, length: { maximum: 100 }
-  validates :path, presence: true, length: { maximum: 100 }
+  validates :path, presence: true, length: { maximum: 100 },
+                   format: { with: %r!\A/! }
   validates :data, length: { maximum: 5000 }
-
   validate :template_exists
 
   def template_exists
