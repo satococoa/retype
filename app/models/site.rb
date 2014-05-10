@@ -27,6 +27,10 @@ class Site < ActiveRecord::Base
     upload(build_path)
   end
 
+  def theme_path
+    Rails.root.join('themes', theme)
+  end
+
   private
     def upload(path)
       @s3 ||= Aws::S3.new(access_key_id: s3_access_key, secret_access_key: s3_secret_key, region: s3_region)
@@ -41,10 +45,6 @@ class Site < ActiveRecord::Base
           @s3.put_object(acl: 'public-read', bucket: name, key: key, body: body, content_type: mime.type)
         end
       }
-    end
-
-    def theme_path
-      Rails.root.join('themes', theme)
     end
 
     def build_path

@@ -5,10 +5,20 @@ class Page < ActiveRecord::Base
   validates :path, presence: true, length: { maximum: 100 }
   validates :data, length: { maximum: 5000 }
 
+  validate :template_exists
+
+  def template_exists
+    errors.add(:template, "should exist") unless templates.include?(template)
+  end
+
   def render(context)
     parsed_data = JSON::parse(self.data)
     tmpl = Tilt.new(Rails.root.join('themes', site.theme, 'templates', template).to_s)
     layout = Tilt.new(Rails.root.join('themes', site.theme, 'layout.html.haml').to_s)
     layout.render { tmpl.render(context, page: self, data: parsed_data) }
+  end
+
+  def templates
+    site.theme_path.join('templates').children.map {|path| path.basename.to_s }
   end
 end

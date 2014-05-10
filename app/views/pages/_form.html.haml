@@ -15,7 +15,7 @@
   .form-group
     = f.label :template, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :template, :class => 'form-control'
+      = f.collection_select :template, @page.templates, :to_s, :to_s, prompt: true, :class => 'form-control'
   .form-group
     = f.label :path, :class => 'col-sm-2 control-label'
     .col-sm-10
