@@ -1,8 +1,12 @@
-.page-header
-  = link_to new_site_page_path, :class => 'btn btn-primary' do
-    %span.glyphicon.glyphicon-plus
-    New Page
-  %h1 Listing pages
+- content_for :page_title do
+  Listing pages
+
+.common-first-actions
+  %ul.common-first-actions__items.is-inline-blocks
+    %li.common-first-actions__item
+      = link_to new_site_page_path, :class => 'btn btn-primary' do
+        %i.fa.fa-plus
+        Add Page
 
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover

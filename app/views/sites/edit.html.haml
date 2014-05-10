@@ -1,11 +1,15 @@
 - content_for :page_title do
   Editing site
 
-= link_to sites_path, :class => 'btn btn-default' do
-  %span.glyphicon.glyphicon-list-alt
-  Back
-= link_to @site, :class => 'btn btn-primary' do
-  %span.glyphicon.glyphicon-info-sign
-  Show
+.common-first-actions
+  %ul.common-first-actions__items.is-inline-blocks
+    %li.common-first-actions__item
+      = link_to sites_path, :class => 'btn btn-default' do
+        %i.fa.fa-reply
+        Back
+    %li.common-first-actions__item
+      = link_to @site, :class => 'btn btn-primary' do
+        %i.fa.fa-info-circle
+        Show
 
 = render 'form'
