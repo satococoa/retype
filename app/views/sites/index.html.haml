@@ -30,6 +30,9 @@
           %td.is-vertical-center.table-actions
             %ul.table-actions__items.is-inline-blocks
               %li.table-actions__item
+                = link_to deploy_site_path(site), :data => { confirm: 'Are you sure?' }, :method => :post, class: "btn btn-primary btn-sm table-actions__button" do
+                  %i.fa.fa-cloud-upload.fa-lg
+              %li.table-actions__item
                 = link_to edit_site_path(site), class: "btn btn-primary btn-sm table-actions__button" do
                   %i.fa.fa-edit.fa-lg
               %li.table-actions__item

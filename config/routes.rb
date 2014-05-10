@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :sites do
+    post :deploy, on: :member
     resources :pages do
       get :preview, on: :member
     end
