@@ -75,6 +75,6 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:name, :theme, :s3_access_key, :s3_secret_key)
+      params.require(:site).permit(:name, :theme, :s3_access_key, :s3_secret_key, :s3_region)
     end
 end

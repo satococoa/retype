@@ -1,10 +1,13 @@
 class Site < ActiveRecord::Base
+  REGIONS = %w(us-east-1 us-west-1 us-west-2 eu-west-1 ap-southeast-1 ap-southeast-2 ap-northeast-1 sa-east-1)
+
   belongs_to :user
   has_many :pages
   validates :name, presence: true, length: { maximum: 50 }
   validates :theme, presence: true, length: { maximum: 100 }
   validates :s3_access_key, length: { maximum: 100 }
   validates :s3_secret_key, length: { maximum: 100 }
+  validates :s3_region, inclusion: { in: REGIONS }
 
   def build_files
     build_path.mkdir unless build_path.exist?
@@ -25,7 +28,7 @@ class Site < ActiveRecord::Base
 
   private
     def upload(path)
-      @s3 ||= Aws::S3.new(access_key_id: s3_access_key, secret_access_key: s3_secret_key, region: 'ap-northeast-1')
+      @s3 ||= Aws::S3.new(access_key_id: s3_access_key, secret_access_key: s3_secret_key, region: s3_region)
       path.each_child {|child|
         if child.directory? && child.children.length > 0
           upload(child)
