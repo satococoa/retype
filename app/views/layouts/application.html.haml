@@ -26,38 +26,13 @@
       = javascript_include_tag "oulu-ie9"
 
   %body{class: "is-#{page_slug} #{browser}"}
-    .navbar
+    = render 'header'
+    - if page_slug == 'statics_index'
       .container
-        .navbar-header
-          %button.navbar-toggle{:type => "button", :data => {:toggle => "collapse", :target => ".navbar-collapse"} }
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to 'ReType', root_path, :class => "navbar-brand"
-        .collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li{class: "#{'active' if params[:controller] == 'sites'}"}
-              = link_to 'Sites', sites_path
-
-          %ul.nav.navbar-nav.navbar-right
-            - if current_user
-              %li
-                = link_to edit_user_password_path do
-                  %span.glyphicon.glyphicon-user
-                  = current_user.email
-              %li
-                = link_to destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'navbar-link' do
-                  %span.glyphicon.glyphicon-log-out
-                  = t(:logout)
-            - else
-              %li
-                = link_to new_user_session_path, class: 'navbar-link' do
-                  %span.glyphicon.glyphicon-log-in
-                  = t(:login)
-    .container
-      - flash.each do |name, msg|
-        = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable" do
-          %button.close{:type => "button", :data => {:dismiss => "alert"}, :aria => {:hidden => "true"} } &times;
-          = msg
-    = yield
+        = render 'flash'
+      = yield
+    - else
+      = render 'page_eyecatch'
+      .container
+        = render 'flash'
+        = yield

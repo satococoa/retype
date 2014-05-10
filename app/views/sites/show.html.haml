@@ -1,11 +1,16 @@
-.page-header
-  = link_to sites_path, :class => 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to edit_site_path(@site), :class => 'btn btn-primary' do
-    %span.glyphicon.glyphicon-pencil
-    Edit
-  %h1 Show site
+- content_for :page_title do
+  Show site
+
+.common-first-actions
+  %ul.common-first-actions__items.is-inline-blocks
+    %li.common-first-actions__item
+      = link_to sites_path, :class => 'btn btn-default' do
+        %i.fa.fa-reply
+        Back
+    %li.common-first-actions__item
+      = link_to edit_site_path(@site), :class => 'btn btn-primary' do
+        %i.fa.fa-edit
+        Edit
 
 %dl.dl-horizontal
   %dt Name:

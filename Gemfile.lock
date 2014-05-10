@@ -11,9 +11,9 @@ GIT
 
 GIT
   remote: git://github.com/oulu/oulu-rails.git
-  revision: 418cd858e9ce1eca447bafcd8c40ccdfc2cf9444
+  revision: 596633b202467896dd957157bad698575efaf255
   specs:
-    oulu-rails (0.1.20)
+    oulu-rails (0.1.21)
       SassyLists
       breakpoint
       ceaser-easing
@@ -308,7 +308,7 @@ DEPENDENCIES
   heroku
   jbuilder (~> 2.0)
   jquery-rails
-  oulu-rails (~> 0.1.20)!
+  oulu-rails (~> 0.1.21)!
   pg
   pry-byebug
   pry-doc

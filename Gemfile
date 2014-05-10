@@ -20,7 +20,7 @@ gem 'compass', '~> 1.0.0.alpha.19'
 gem 'compass-rails', '~> 1.1.7'
 gem 'bootstrap-sass'
 # gem 'oulu-rails', path: '../oulu-rails'
-gem 'oulu-rails', '~> 0.1.20', github: 'oulu/oulu-rails'
+gem 'oulu-rails', '~> 0.1.21', github: 'oulu/oulu-rails'
 
 group :development do
   gem 'spring'
