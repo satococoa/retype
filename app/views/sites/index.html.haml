@@ -13,7 +13,7 @@
       %tr
         %th.is-vertical-center Name
         %th.is-vertical-center Theme
-        %th.is-vertical-center Actions
+        %th.is-vertical-center
         %th.is-vertical-center.is-vertical-center.is-hidden S3 access key
         %th.is-vertical-center.is-hidden S3 secret key
 
@@ -22,26 +22,24 @@
         %tr
           %td.is-vertical-center
             .table-site-name.is-relative
-              = link_to site.name, site
-              .table-site-name__actions.table-actions
-                %ul.table-actions__items.is-inline-blocks
+              = link_to site.name, site_pages_path(site)
 
           %td.is-vertical-center= site.theme
           %td.is-vertical-center.table-actions
             %ul.table-actions__items.is-inline-blocks
               %li.table-actions__item
-                = link_to site_pages_path(site), class: "btn btn-primary btn-sm table-actions__button" do
+                = link_to site_pages_path(site), class: "btn btn-default btn-sm table-actions__button" do
                   %i.fa.fa-files-o.fa-lg
               %li.table-actions__item
-                = link_to new_site_page_path(site), class: "btn btn-primary btn-sm table-actions__button" do
+                = link_to new_site_page_path(site), class: "btn btn-default btn-sm table-actions__button" do
                   %i.fa.fa-plus
                   %i.fa.fa-file-o.fa-lg
               %li.table-actions__item
+                = link_to edit_site_path(site), class: "btn btn-default btn-sm table-actions__button" do
+                  %i.fa.fa-edit.fa-lg
+              %li.table-actions__item
                 = link_to deploy_site_path(site), :data => { confirm: 'Are you sure?' }, :method => :post, class: "btn btn-primary btn-sm table-actions__button" do
                   %i.fa.fa-cloud-upload.fa-lg
-              %li.table-actions__item
-                = link_to edit_site_path(site), class: "btn btn-primary btn-sm table-actions__button" do
-                  %i.fa.fa-edit.fa-lg
               %li.table-actions__item
                 = link_to site, :data => { confirm: 'Are you sure?' }, :method => :delete, class: "btn btn-danger btn-xstable-actions__button" do
                   %i.fa.fa-trash-o.fa-lg
