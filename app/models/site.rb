@@ -31,8 +31,14 @@ class Site < ActiveRecord::Base
 
   def deploy
     build_files
-    uploaded_keys = upload(build_path)
-    remove(uploaded_keys)
+    if deploy_type == 's3'
+      uploaded_keys = upload(build_path)
+      remove(uploaded_keys)
+    elsif deploy_type == 'ftp'
+      logger.info "Syncing with FTP: #{build_path} -> #{ftp_directory}"
+      ftp = FtpSync.new(ftp_host, ftp_user, ftp_password, passive: true)
+      ftp.push_dir build_path, ftp_directory
+    end
   end
 
   def theme_path
