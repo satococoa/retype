@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :set_site, only: [:show, :edit, :update, :destroy, :deploy]
 
   # GET /sites
   # GET /sites.json
@@ -60,6 +60,11 @@ class SitesController < ApplicationController
       format.html { redirect_to sites_url, notice: 'Site was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def deploy
+    @site.deploy
+    redirect_to sites_url
   end
 
   private
