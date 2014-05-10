@@ -1,6 +1,41 @@
+GIT
+  remote: git://github.com/machida/sass-rails.git
+  revision: b557b79845c254bbe6eb44f20e8f9fdca8539ba8
+  branch: sass3
+  specs:
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.3.5)
+      sprockets (~> 2.8, <= 2.11.0)
+      sprockets-rails (~> 2.0)
+
+GIT
+  remote: git://github.com/oulu/oulu-rails.git
+  revision: 18b04cc54b7869630c89c5daafbec8951f506c96
+  specs:
+    oulu-rails (0.1.18)
+      SassyLists
+      breakpoint
+      ceaser-easing
+      compass-rails
+      compass-rgbapng
+      modular-scale
+      rails-assets-Ladda
+      rails-assets-css-modal
+      rails-assets-font-awesome-animation
+      railties
+      respond-rails
+      sass-rails
+      sassy-maps
+      toolkit
+
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
+    SassyLists (1.0.0)
+      compass (>= 0.12.1)
+      sass (>= 3.2.0)
     actionmailer (4.1.1)
       actionpack (= 4.1.1)
       actionview (= 4.1.1)
@@ -37,10 +72,18 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
+    breakpoint (2.4.2)
+      sass (~> 3.3.0)
+      sassy-maps (< 1.0.0)
+    browser (0.4.1)
     builder (3.2.2)
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
+    ceaser-easing (0.7)
+      compass (>= 0.12.2)
+      rake
+    chunky_png (1.3.1)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -50,6 +93,24 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.8.9)
+    compass (1.0.0.alpha.19)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.0.alpha.19)
+      compass-import-once (~> 1.0.3)
+      json
+      listen (~> 1.1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-core (1.0.0.alpha.19)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.4)
+      sass (>= 3.2, < 3.5)
+    compass-rails (1.1.7)
+      compass (>= 0.12.2)
+      sprockets (<= 2.11.0)
+    compass-rgbapng (0.2.1)
+      chunky_png (>= 0.8.0)
+      compass (>= 0.10.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.2.4)
@@ -68,6 +129,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    ffi (1.9.3)
     foreman (0.66.0)
       dotenv (~> 0.7.0)
       thor (~> 0.19.1)
@@ -101,12 +163,18 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    listen (1.1.6)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      rb-kqueue (>= 0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.3.3)
+    modular-scale (2.0.5)
+      compass (>= 0.12.0)
     multi_json (1.10.0)
     netrc (0.7.7)
     orm_adapter (0.5.0)
@@ -142,12 +210,24 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.1)
       sprockets-rails (~> 2.0)
+    rails-assets-Ladda (0.9.3)
+      rails-assets-spin.js (~> 1.3.0)
+    rails-assets-css-modal (1.0.4)
+    rails-assets-font-awesome-animation (0.0.4)
+    rails-assets-spin.js (1.3.3)
     railties (4.1.1)
       actionpack (= 4.1.1)
       activesupport (= 4.1.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.1)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.4)
+      ffi (>= 0.5.0)
+    rb-kqueue (0.2.2)
+      ffi (>= 0.5.0)
+    respond-rails (1.0.1)
+      railties (>= 3.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rqrcode (0.4.2)
@@ -164,12 +244,10 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     rubyzip (1.1.3)
-    sass (3.2.19)
-    sass-rails (4.0.3)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.0)
-      sprockets (~> 2.8, <= 2.11.0)
-      sprockets-rails (~> 2.0)
+    sass (3.3.7)
+    sassy-maps (0.3.2)
+      compass (~> 1.0.0.alpha.13)
+      sass (~> 3.3.0.rc.2)
     slop (3.5.0)
     spring (1.1.2)
     sprockets (2.11.0)
@@ -189,6 +267,8 @@ GEM
     thread_safe (0.3.3)
     tilt (1.4.1)
     tins (1.1.0)
+    toolkit (2.3.0)
+      sass (~> 3.3.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -201,6 +281,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    xray-rails (0.1.14)
+      coffee-rails
+      rails (>= 3.1.0)
     yard (0.8.7.4)
 
 PLATFORMS
@@ -209,8 +292,11 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.1.1)
+  bootstrap-sass
+  browser (~> 0.4.1)
   coffee-rails (~> 4.0.0)
+  compass (~> 1.0.0.alpha.19)
+  compass-rails (~> 1.1.7)
   devise
   factory_girl_rails
   foreman
@@ -219,6 +305,7 @@ DEPENDENCIES
   heroku
   jbuilder (~> 2.0)
   jquery-rails
+  oulu-rails (~> 0.1.18)!
   pg
   pry-byebug
   pry-doc
@@ -227,8 +314,10 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.1)
   rspec-rails
-  sass-rails (~> 4.0.3)
+  sass (~> 3.3.7)
+  sass-rails!
   spring
   tapp
   turbolinks
   uglifier (>= 1.3.0)
+  xray-rails
