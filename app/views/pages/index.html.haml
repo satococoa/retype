@@ -4,6 +4,10 @@
 .common-first-actions
   %ul.common-first-actions__items.is-inline-blocks
     %li.common-first-actions__item
+      = link_to sites_path, :class => 'btn btn-default' do
+        %i.fa.fa-reply
+        Back
+    %li.common-first-actions__item
       = link_to new_site_page_path, :class => 'btn btn-primary' do
         %i.fa.fa-plus
         Add Page
@@ -12,23 +16,32 @@
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
+        %th Path
         %th Title
         %th Template
-        %th Path
         %th Data
-        %th Preview
-        %th
-        %th
         %th
 
     %tbody
       - @pages.each do |page|
         %tr
-          %td= page.title
-          %td= page.template
           %td= page.path
+          %td
+            = link_to site_page_path(@site, page) do
+              = page.title
+          %td= page.template
           %td= page.data
-          %td= link_to 'Preview', preview_site_page_path(@site, page), target: '_blank'
-          %td= link_to 'Show', site_page_path(@site, page)
-          %td= link_to 'Edit', edit_site_page_path(@site, page)
-          %td= link_to 'Destroy', site_page_path(@site, page), :data => { confirm: 'Are you sure?' }, :method => :delete
+          %td
+            %ul.table-actions__items.is-inline-blocks
+              %li.table-actions__item
+                = link_to preview_site_page_path(@site, page), target: '_blank', class: "btn btn-primary btn-sm table-actions__button" do
+                  %i.fa.fa-eye
+                  Preview
+              %li.table-actions__item
+                = link_to edit_site_page_path(@site, page), class: "btn btn-primary btn-sm table-actions__button" do
+                  %i.fa.fa-edit
+                  Edit
+              %li.table-actions__item
+                = link_to site_page_path(@site, page), :data => { confirm: 'Are you sure?' }, :method => :delete, class: "btn btn-danger btn-sm table-actions__button" do
+                  %i.fa.fa-trash-o
+                  Destroy

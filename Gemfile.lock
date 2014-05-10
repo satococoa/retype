@@ -11,9 +11,9 @@ GIT
 
 GIT
   remote: git://github.com/oulu/oulu-rails.git
-  revision: 596633b202467896dd957157bad698575efaf255
+  revision: 4987c4b23bd34ce171a4394d2d3d3efd90501786
   specs:
-    oulu-rails (0.1.21)
+    oulu-rails (0.1.22)
       SassyLists
       breakpoint
       ceaser-easing
@@ -337,7 +337,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   mimemagic
-  oulu-rails (~> 0.1.21)!
+  oulu-rails (~> 0.1.22)!
   pg
   pry-byebug
   pry-doc

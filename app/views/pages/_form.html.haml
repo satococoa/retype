@@ -23,7 +23,8 @@
   .form-group
     = f.label :data, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_area :data, rows: 20, :class => 'form-control', data: { default: @page.default_data.to_json }
+      = f.text_area :data, :class => 'form-control form-group__lg-textarea', data: { default: @page.default_data.to_json }
+
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit :class => 'btn btn-primary'
