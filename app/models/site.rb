@@ -55,7 +55,7 @@ class Site < ActiveRecord::Base
 
     def remove(not_remove_keys)
       existing_keys = s3.list_objects(bucket: 'demo.retype.jp').contents.map(&:key).reject{|key| key.match(/^logs/)}
-      (existing_keys - not_remove_keys).tapp.each {|key|
+      (existing_keys - not_remove_keys).each {|key|
         logger.info "Deleting from S3: #{key} (#{name})"
         s3.delete_object(bucket: name, key: key)
       }
