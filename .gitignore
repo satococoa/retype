@@ -16,3 +16,4 @@ vendor/bundle
 /log/*.log
 /tmp
 build/*
+.env
