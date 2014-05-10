@@ -1,7 +1,11 @@
-.page-header
-  = link_to site_pages_path, :class => 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  %h1 New page
+- content_for :page_title do
+  New page
+
+.common-first-actions
+  %ul.common-first-actions__items.is-inline-blocks
+    %li.common-first-actions__item
+      = link_to site_pages_path, :class => 'btn btn-default' do
+        %i.fa.fa-reply
+        Back
 
 = render 'form'
