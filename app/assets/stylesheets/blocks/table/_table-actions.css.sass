@@ -2,11 +2,17 @@ $block-slug: table-actions
 
 .#{$block-slug}
   text-align: center
-  +rem('width', 270px)
+  +rem('width', 240px)
 .#{$block-slug}__items
   +reset-text
   +rem('margin', 0 -2px)
+  white-space: nowrap
 .#{$block-slug}__button
   +rem('margin', 0 2px)
   +rem('font-size', 14px)
+.#{$block-slug}__count-number
+  +rem('font-size', 12px)
+  +rem('width', 20px)
+  +inline-block(bottom)
+  text-align: center
 
