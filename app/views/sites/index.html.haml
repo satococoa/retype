@@ -1,9 +1,9 @@
-.page-header
-  = link_to new_site_path, :class => 'btn btn-primary' do
-    %span.glyphicon.glyphicon-plus
-    New Site
-  %h1 Listing sites
+- content_for :page_title do
+  Listing sites
 
+= link_to new_site_path, :class => 'btn btn-primary' do
+  %span.glyphicon.glyphicon-plus
+  New Site
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead

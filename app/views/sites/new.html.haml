@@ -1,7 +1,8 @@
-.page-header
-  = link_to sites_path, :class => 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  %h1 New site
+- content_for :page_title do
+  New site
+
+= link_to sites_path, :class => 'btn btn-default' do
+  %span.glyphicon.glyphicon-list-alt
+  Back
 
 = render 'form'

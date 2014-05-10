@@ -27,9 +27,13 @@
 
   %body{class: "is-#{page_slug} #{browser}"}
     = render 'header'
-    .container
-      - flash.each do |name, msg|
-        = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable" do
-          %button.close{:type => "button", :data => {:dismiss => "alert"}, :aria => {:hidden => "true"} } &times;
-          = msg
-    = yield
+    - if page_slug == 'statics_index'
+      .container
+        = render 'flash'
+      = yield
+    - else
+      = render 'page_eyecatch'
+      .container
+        = render 'flash'
+        = yield
+
