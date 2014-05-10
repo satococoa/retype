@@ -1,8 +1,11 @@
 - content_for :page_title do
   New site
 
-= link_to sites_path, :class => 'btn btn-default' do
-  %i.fa.fa-reply
-  Back
+.common-first-actions
+  %ul.common-first-actions__items.is-inline-blocks
+    %li.common-first-actions__item
+      = link_to sites_path, :class => 'btn btn-default' do
+        %i.fa.fa-reply
+        Back
 
 = render 'form'
