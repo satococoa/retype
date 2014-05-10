@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :sites do
-    resources :pages
+    resources :pages do
+      get :preview, on: :member
+    end
   end
 
   devise_for :users

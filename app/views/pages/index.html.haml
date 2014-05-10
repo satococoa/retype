@@ -12,6 +12,7 @@
         %th Template
         %th Path
         %th Data
+        %th Preview
         %th
         %th
         %th
@@ -23,6 +24,7 @@
           %td= page.template
           %td= page.path
           %td= page.data
+          %td= link_to 'Preview', preview_site_page_path(@site, page), target: '_blank'
           %td= link_to 'Show', site_page_path(@site, page)
           %td= link_to 'Edit', edit_site_page_path(@site, page)
           %td= link_to 'Destroy', site_page_path(@site, page), :data => { confirm: 'Are you sure?' }, :method => :delete
