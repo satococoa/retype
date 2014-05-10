@@ -29,6 +29,7 @@ gem 'oulu-rails', '~> 0.1.21', github: 'oulu/oulu-rails'
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :development do
