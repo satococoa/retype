@@ -1,13 +1,14 @@
 class Site < ActiveRecord::Base
   REGIONS = %w(us-east-1 us-west-1 us-west-2 eu-west-1 ap-southeast-1 ap-southeast-2 ap-northeast-1 sa-east-1)
+  THEMES = Rails.root.join('themes').children.map {|i| i.basename.to_s }
 
   belongs_to :user
   has_many :pages
   validates :name, presence: true, length: { maximum: 50 }
-  validates :theme, presence: true, length: { maximum: 100 }
+  validates :theme, presence: true, inclusion: { in: THEMES }
   validates :s3_access_key, length: { maximum: 100 }
   validates :s3_secret_key, length: { maximum: 100 }
-  validates :s3_region, inclusion: { in: REGIONS }
+  validates :s3_region, inclusion: { in: REGIONS + [''] }
 
   def build_files
     build_path.mkdir unless build_path.exist?
