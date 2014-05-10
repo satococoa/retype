@@ -6,8 +6,9 @@ class Page < ActiveRecord::Base
   validates :data, length: { maximum: 5000 }
 
   def render(context)
-    @data = JSON::parse(data)
-    tilt = Tilt.new(Rails.root.join('themes', site.theme, 'templates', template).to_s)
-    context.render text: tilt.render(context, page: self)
+    parsed_data = JSON::parse(self.data)
+    tmpl = Tilt.new(Rails.root.join('themes', site.theme, 'templates', template).to_s)
+    layout = Tilt.new(Rails.root.join('themes', site.theme, 'layout.html.haml').to_s)
+    context.render text: layout.render { tmpl.render(context, page: self, data: parsed_data) }
   end
 end
