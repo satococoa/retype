@@ -24,7 +24,8 @@ class Site < ActiveRecord::Base
 
   def deploy
     build_files
-    upload(build_path)
+    uploaded_keys = upload(build_path)
+    remove(uploaded_keys)
   end
 
   def theme_path
@@ -32,18 +33,31 @@ class Site < ActiveRecord::Base
   end
 
   private
-    def upload(path)
+    def s3
       @s3 ||= Aws::S3.new(access_key_id: s3_access_key, secret_access_key: s3_secret_key, region: s3_region)
+    end
+
+    def upload(path, uploaded_keys = [])
       path.each_child {|child|
         if child.directory? && child.children.length > 0
-          upload(child)
+          uploaded_keys += upload(child, uploaded_keys)
         else
           key = child.to_s.remove(build_path.to_s).remove(%r!^/!)
+          uploaded_keys << key
           logger.info "Uploading to S3: #{child} -> #{key} (#{name})"
           body = File.read(child)
           mime = MimeMagic.by_magic(body).presence || MimeMagic.by_path(child)
-          @s3.put_object(acl: 'public-read', bucket: name, key: key, body: body, content_type: mime.type)
+          s3.put_object(acl: 'public-read', bucket: name, key: key, body: body, content_type: mime.type)
         end
+      }
+      uploaded_keys
+    end
+
+    def remove(not_remove_keys)
+      existing_keys = s3.list_objects(bucket: 'demo.retype.jp').contents.map(&:key).reject{|key| key.match(/^logs/)}
+      (existing_keys - not_remove_keys).tapp.each {|key|
+        logger.info "Deleting from S3: #{key} (#{name})"
+        s3.delete_object(bucket: name, key: key)
       }
     end
 
