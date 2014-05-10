@@ -35,15 +35,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  config.generators do |g|
-    g.helper false
-    g.test_framework :rspec,
-      view_specs: false,
-      controller_specs: false,
-      helper_specs: false,
-      routing_specs: false,
-      fixture: true,
-      fixture_replacement: 'factory_girl'
-  end
 end
