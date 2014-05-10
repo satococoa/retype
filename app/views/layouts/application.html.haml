@@ -26,7 +26,7 @@
       = javascript_include_tag "oulu-ie9"
 
   %body{class: "is-#{page_slug} #{browser}"}
-    .navbar.navbar-inverse.navbar-fixed-top
+    .navbar
       .container
         .navbar-header
           %button.navbar-toggle{:type => "button", :data => {:toggle => "collapse", :target => ".navbar-collapse"} }
@@ -62,4 +62,4 @@
         = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable" do
           %button.close{:type => "button", :data => {:dismiss => "alert"}, :aria => {:hidden => "true"} } &times;
           = msg
-      = yield
+    = yield
