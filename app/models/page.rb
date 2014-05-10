@@ -11,11 +11,12 @@ class Page < ActiveRecord::Base
     errors.add(:template, "should exist") unless templates.include?(template)
   end
 
-  def render(context)
+  def render
     parsed_data = JSON::parse(self.data)
     tmpl = Tilt.new(Rails.root.join('themes', site.theme, 'templates', template).to_s)
     layout = Tilt.new(Rails.root.join('themes', site.theme, 'layout.html.haml').to_s)
-    layout.render { tmpl.render(context, page: self, data: parsed_data) }
+    locals = {site: site, page: self, data: parsed_data}
+    layout.render(nil, locals) { tmpl.render(nil, locals) }
   end
 
   def templates
