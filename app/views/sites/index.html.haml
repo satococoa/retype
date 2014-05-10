@@ -27,6 +27,7 @@
           %td.is-vertical-center= site.s3_access_key
           %td.is-vertical-center= site.s3_secret_key
           %td.is-vertical-center= link_to 'Pages', site_pages_path(site)
+          %td.is-vertical-center= link_to 'Deploy', deploy_site_path(site), :data => { confirm: 'Are you sure?' }, :method => :post
           %td.is-vertical-center.table-actions
             %ul.table-actions__items.is-inline-blocks
               %li.table-actions__item

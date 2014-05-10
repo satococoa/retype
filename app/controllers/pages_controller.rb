@@ -64,7 +64,7 @@ class PagesController < ApplicationController
   end
 
   def preview
-    @page.render(self)
+    render text: @page.render(self)
   end
 
   private
