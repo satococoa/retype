@@ -15,18 +15,19 @@
         %th.is-vertical-center Theme
         %th.is-vertical-center S3 access key
         %th.is-vertical-center.is-vertical-center S3 secret key
-        %th.is-vertical-center Pages
         %th.is-vertical-center Actions
 
     %tbody
       - @sites.each do |site|
         %tr
           %td.is-vertical-center
-            = link_to site.name, site
+            .table__site-name.is-relative
+              = link_to site.name, site
+              = link_to site_pages_path(site), class: "btn btn-primary btn-sm table__pages-button" do
+                %i.fa.fa-files-o.fa-lg
           %td.is-vertical-center= site.theme
           %td.is-vertical-center= site.s3_access_key
           %td.is-vertical-center= site.s3_secret_key
-          %td.is-vertical-center= link_to 'Pages', site_pages_path(site)
           %td.is-vertical-center.table-actions
             %ul.table-actions__items.is-inline-blocks
               %li.table-actions__item
