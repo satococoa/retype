@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510105518) do
+ActiveRecord::Schema.define(version: 20140510145253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20140510105518) do
     t.integer  "user_id"
     t.string   "theme"
     t.string   "s3_region"
+    t.integer  "deploy_type",   default: 0, null: false
+    t.string   "ftp_host"
+    t.string   "ftp_directory"
+    t.string   "ftp_user"
+    t.string   "ftp_password"
   end
 
   add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree

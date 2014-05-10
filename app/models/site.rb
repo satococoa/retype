@@ -2,6 +2,8 @@ class Site < ActiveRecord::Base
   REGIONS = %w(us-east-1 us-west-1 us-west-2 eu-west-1 ap-southeast-1 ap-southeast-2 ap-northeast-1 sa-east-1)
   THEMES = Rails.root.join('themes').children.map {|i| i.basename.to_s }
 
+  enum deploy_type: [:s3, :ftp]
+
   belongs_to :user
   has_many :pages
   validates :name, presence: true, length: { maximum: 50 }
@@ -9,6 +11,11 @@ class Site < ActiveRecord::Base
   validates :s3_access_key, length: { maximum: 100 }
   validates :s3_secret_key, length: { maximum: 100 }
   validates :s3_region, inclusion: { in: REGIONS + [''] }
+  validates :ftp_host, length: { maximum: 100 }
+  validates :ftp_directory, length: { maximum: 100 }
+  validates :ftp_user, length: { maximum: 100 }
+  validates :ftp_password, length: { maximum: 100 }
+
 
   def build_files
     build_path.mkdir unless build_path.exist?
@@ -24,8 +31,14 @@ class Site < ActiveRecord::Base
 
   def deploy
     build_files
-    uploaded_keys = upload(build_path)
-    remove(uploaded_keys)
+    if deploy_type == 's3'
+      uploaded_keys = upload(build_path)
+      remove(uploaded_keys)
+    elsif deploy_type == 'ftp'
+      logger.info "Syncing with FTP: #{build_path} -> #{ftp_directory}"
+      ftp = FtpSync.new(ftp_host, ftp_user, ftp_password, passive: true)
+      ftp.push_dir build_path, ftp_directory
+    end
   end
 
   def theme_path
