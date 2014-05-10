@@ -1,2 +1,9 @@
-%p= page.data[:hoge]
-%p= page.data[:fuga][:bar]
+= partial :header
+
+%body
+  %h1 Sample Theme
+
+  %p= page.data[:hoge]
+  %p= page.data[:fuga][:bar]
+
+= partial :footer
