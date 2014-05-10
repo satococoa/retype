@@ -21,4 +21,8 @@ class Page < ActiveRecord::Base
   def templates
     site.theme_path.join('templates').children.map {|path| path.basename.to_s }
   end
+
+  def default_data
+    site.theme_path.join('data').children.inject({}) {|obj, path| obj[path.basename('.json').to_s] = path.read; obj}
+  end
 end
