@@ -14,6 +14,7 @@ gem 'bootstrap-generators', '~> 3.1.1'
 gem 'browser', '~> 0.4.1'
 gem 'aws-sdk-core', '~> 2.0.0.rc7'
 gem 'mimemagic'
+gem 'jquery-turbolinks'
 
 # Sass
 gem 'sass', '~> 3.3.7'

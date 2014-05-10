@@ -15,15 +15,16 @@
   .form-group
     = f.label :template, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :template, :class => 'form-control'
+      = f.collection_select :template, @page.templates, :to_s, :to_s, prompt: true, :class => 'form-control'
   .form-group
     = f.label :path, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :path, :class => 'form-control'
+      = f.text_field :path, :class => 'form-control', placeholder: '/path/to/page'
   .form-group
     = f.label :data, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_area :data, :class => 'form-control form-group__lg-textarea'
+      = f.text_area :data, :class => 'form-control form-group__lg-textarea', data: { default: @page.default_data.to_json }
+
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit :class => 'btn btn-primary'
