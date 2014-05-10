@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_site
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :preview]
 
   # GET /pages
   # GET /pages.json
@@ -61,6 +61,10 @@ class PagesController < ApplicationController
       format.html { redirect_to site_pages_url(@site), notice: 'Page was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def preview
+    @page.render(self)
   end
 
   private
