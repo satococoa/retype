@@ -28,7 +28,6 @@
   %body{class: "is-#{page_slug} #{browser}"}
     - if page_slug == 'statics_index'
       .container
-        = render 'flash'
       = yield
     - else
       = render 'header'
