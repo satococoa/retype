@@ -17,6 +17,10 @@
     .col-sm-10
       = f.collection_select :theme, Site::THEMES, :to_s, :to_s, prompt: true, :class => 'form-control'
   .form-group
+    = f.label :deploy_type, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.collection_radio_buttons :deploy_type, Site.deploy_types, :first, :first
+  .form-group
     = f.label :s3_region, :class => 'col-sm-2 control-label'
     .col-sm-10
       = f.collection_select :s3_region, Site::REGIONS, :to_s, :to_s, prompt: true, class: 'form-control'
