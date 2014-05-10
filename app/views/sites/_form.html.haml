@@ -17,17 +17,39 @@
     .col-sm-10
       = f.collection_select :theme, Site::THEMES, :to_s, :to_s, prompt: true, :class => 'form-control'
   .form-group
-    = f.label :s3_region, :class => 'col-sm-2 control-label'
+    = f.label :deploy_type, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.collection_select :s3_region, Site::REGIONS, :to_s, :to_s, prompt: true, class: 'form-control'
-  .form-group
-    = f.label :s3_access_key, :class => 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :s3_access_key, :class => 'form-control'
-  .form-group
-    = f.label :s3_secret_key, :class => 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :s3_secret_key, :class => 'form-control'
+      = f.collection_radio_buttons :deploy_type, Site.deploy_types, :first, :first
+  #s3-columns
+    .form-group
+      = f.label :s3_region, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.collection_select :s3_region, Site::REGIONS, :to_s, :to_s, prompt: true, class: 'form-control'
+    .form-group
+      = f.label :s3_access_key, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :s3_access_key, :class => 'form-control'
+    .form-group
+      = f.label :s3_secret_key, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :s3_secret_key, :class => 'form-control'
+  #ftp-columns
+    .form-group
+      = f.label :ftp_host, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :ftp_host, :class => 'form-control'
+    .form-group
+      = f.label :ftp_directory, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :ftp_directory, :class => 'form-control'
+    .form-group
+      = f.label :ftp_user, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :ftp_user, :class => 'form-control'
+    .form-group
+      = f.label :ftp_password, :class => 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :ftp_password, :class => 'form-control'
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit "Create", class: "btn btn-primary"
