@@ -28,5 +28,16 @@ module Retype
     # config.i18n.default_locale = :de
 
     config.sass.preferred_syntax = :sass
+    config.generators do |g|
+      g.helper false
+      g.jbuilder false
+      g.test_framework :rspec,
+        view_specs: false,
+        controller_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        fixture: true,
+        fixture_replacement: 'factory_girl'
+    end
   end
 end

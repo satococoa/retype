@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'devise'
-
+gem 'bootstrap-generators', '~> 3.1.1'
 gem 'browser', '~> 0.4.1'
 
 # Sass
