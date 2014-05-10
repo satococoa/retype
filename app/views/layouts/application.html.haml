@@ -21,7 +21,7 @@
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"
       = respond_include_tags
       = javascript_include_tag "oulu-ie8"
-      
+
     - if browser.ie9?
       = javascript_include_tag "oulu-ie9"
 
@@ -34,15 +34,27 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "Project name", "#", :class => "navbar-brand"
+          = link_to 'ReType', root_path, :class => "navbar-brand"
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
+            %li= link_to 'Home', root_path, class: "#{'active' if params[:controller] == 'statics'}"
+            %li= link_to 'Sites', sites_path, class: "#{'active' if params[:controller] == 'sites'}"
+
+          %ul.nav.navbar-nav.navbar-right
+            - if current_user
+              %li
+                = link_to edit_user_password_path do
+                  %span.glyphicon.glyphicon-user
+                  = current_user.email
+              %li
+                = link_to destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'navbar-link' do
+                  %span.glyphicon.glyphicon-log-out
+                  = t(:logout)
+            - else
+              %li
+                = link_to new_user_session_path, class: 'navbar-link' do
+                  %span.glyphicon.glyphicon-log-in
+                  = t(:login)
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable" do
