@@ -267,6 +267,9 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xray-rails (0.1.14)
+      coffee-rails
+      rails (>= 3.1.0)
     yard (0.8.7.4)
 
 PLATFORMS
@@ -301,3 +304,4 @@ DEPENDENCIES
   tapp
   turbolinks
   uglifier (>= 1.3.0)
+  xray-rails
