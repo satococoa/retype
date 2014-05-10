@@ -37,8 +37,6 @@
           = link_to 'ReType', root_path, :class => "navbar-brand"
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li{class: "#{'active' if params[:controller] == 'statics'}"}
-              = link_to 'Home', root_path
             %li{class: "#{'active' if params[:controller] == 'sites'}"}
               = link_to 'Sites', sites_path
 
