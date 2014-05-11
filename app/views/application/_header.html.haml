@@ -7,10 +7,6 @@
           %i.fa.fa-bars
         = link_to 'RT', root_path, :class => "navbar-brand header__logo"
       .collapse.navbar-collapse
-        %ul.nav.navbar-nav
-          - if current_user
-            %li{class: "#{'active' if params[:controller] == 'sites'}"}
-              = link_to 'Sites', sites_path
         %ul.nav.navbar-nav.navbar-right.header-account-nav
           - if current_user
             %li
