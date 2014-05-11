@@ -6,11 +6,12 @@
   color: $white
 
 body
-  =transition($transition-duration: 1s, $transition-property: all, $transition-timing: ease-in)
-    +transition-property($transition-property)
-    +transition-duration($transition-duration)
-    +transition-timing-function($transition-timing)
-  +transition(.4s)
+  *
+    =transition($transition-duration: 1s, $transition-property: all, $transition-timing: ease-in)
+      +transition-property($transition-property)
+      +transition-duration($transition-duration)
+      +transition-timing-function($transition-timing)
+    +transition(.3s)
 
 .field_with_errors
   display: inline !important
