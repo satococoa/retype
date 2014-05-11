@@ -19,7 +19,7 @@
   .form-group
     = f.label :deploy_type, :class => 'col-sm-2 control-label'
     .col-sm-10
-      = f.collection_radio_buttons :deploy_type, Site.deploy_types, :first, :first
+      = f.collection_radio_buttons :deploy_type, Site.deploy_types, :first, :first, {}, html_options = { class: "inline" }
   #s3-columns
     .form-group
       = f.label :s3_region, :class => 'col-sm-2 control-label'
