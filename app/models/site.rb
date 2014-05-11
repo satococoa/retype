@@ -1,6 +1,6 @@
 class Site < ActiveRecord::Base
   REGIONS = %w(us-east-1 us-west-1 us-west-2 eu-west-1 ap-southeast-1 ap-southeast-2 ap-northeast-1 sa-east-1)
-  THEMES = Rails.root.join('themes').children.map {|i| i.basename.to_s }
+  THEMES = Rails.root.join('themes').children.select(&:directory?).map {|i| i.basename.to_s }
 
   enum deploy_type: [:s3, :ftp]
 

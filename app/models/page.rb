@@ -19,10 +19,10 @@ class Page < ActiveRecord::Base
   end
 
   def templates
-    site.theme_path.join('templates').children.map {|path| path.basename.to_s }
+    site.theme_path.join('templates').children.select{|path| path.to_s.match(%r!.+?\.html\..+!) }.map {|path| path.basename.to_s }
   end
 
   def default_data
-    site.theme_path.join('data').children.inject({}) {|obj, path| obj[path.basename('.json').to_s] = path.read; obj}
+    site.theme_path.join('data').children.select{|path| path.to_s.match(%r!.+?\.json!) }.inject({}) {|obj, path| obj[path.basename('.json').to_s] = path.read; obj}
   end
 end
