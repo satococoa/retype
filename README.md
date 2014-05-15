@@ -4,7 +4,7 @@ Next generation static web page generator.
 
 - [HuBoard](https://huboard.com/satococoa/retype/#/)
 - [POEM](POEM.md)
-- [LICENSE](LICENSE.md)
+- [LICENSE](LICENSE)
 
 ## How to use
 
