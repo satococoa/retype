@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/satococoa/retype.png?label=ready&title=Ready)](https://waffle.io/satococoa/retype)
 # ReType
 
 Next generation static web page generator.
