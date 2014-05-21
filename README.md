@@ -1,21 +1,21 @@
-[![Stories in Ready](https://badge.waffle.io/satococoa/retype.png?label=ready&title=Ready)](https://waffle.io/satococoa/retype)
 # ReType
+
+[![Stories in Ready](https://badge.waffle.io/satococoa/retype.png?label=ready&title=Ready)](https://waffle.io/satococoa/retype)
 
 Next generation static web page generator.
 
-- [HuBoard](https://huboard.com/satococoa/retype/#/)
 - [POEM](POEM.md)
 - [LICENSE](LICENSE)
 
 ## How to use
 
 1. Clone this repository.
-1. Type blow.
+1. Type below.
 
 ```
 $ cd /path/to/retype
 $ bundle install
-$ bundle exec rake db:create
-$ bundle exec rake db:migrate
-$ bundle exec rails server
+$ bin/rake db:create
+$ bin/rake db:migrate
+$ bin/rails server
 ```
